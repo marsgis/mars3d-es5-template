@@ -10,8 +10,8 @@
  build整站压缩及混淆：[https://github.com/muyao1987/web-dist](https://github.com/muyao1987/web-dist)
 
 
-## 运行效果
- demo系统： [http://cesium.marsgis.cn/demo.html](http://cesium.marsgis.cn/demo.html)
+## 运行效果 
+ demo系统： [http://marsgis.cn/github/simple-es5/index.html](http://marsgis.cn/github/simple-es5/index.html)
 
  ![image](http://cesium.marsgis.cn/docs/img/project/1.jpg)
  
