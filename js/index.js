@@ -103,7 +103,7 @@ function initWork(viewer) {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: 'data/point.json',
+        url: 'http://data.marsgis.cn/file/apidemo/qiye/point.json',
         timeout: 0,
         success: function (data) {
             showPoint(data.Data)
