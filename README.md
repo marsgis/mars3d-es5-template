@@ -25,4 +25,4 @@
 
 ## 版权说明
   本项目主要是为了展示[Mars3D](http://cesium.marsgis.cn)的项目应用，仅限大家学习之用，如需用于商业项目，请联系购买[火星科技](http://cesium.marsgis.cn)SDK授权。
- 并且Mars3D-SDK类库并未开源（即`libs/cesiumjs/mars3d/`）,内部有作者公司logo及时效限制。
+ 并且Mars3D-SDK类库并未开源（即`libs/cesiumjs/mars3d/`）,在线演示版内部有作者公司logo及时效限制。
