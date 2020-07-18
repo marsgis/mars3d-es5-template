@@ -81,14 +81,35 @@
             }, 
             {
                 "name": "离线地图  (供参考)",
-                "type": "xyz",
-                "icon": "img/basemaps/mapboxSatellite.png",
-                "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg", 
-                "minimumLevel": 1,
-                "maximumLevel": 18,
-                "minimumTerrainLevel": 1,
-                "maximumTerrainLevel": 18,
-                "rectangle": { "xmin": -180, "xmax": 180, "ymin": -85, "ymax": 85 }
+                "type": "group",
+                "icon": "img/basemaps/google_img.png",
+                "layers": [
+                    {        
+                        "name": "全球",                        
+                        "type": "xyz",
+                        "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg", 
+                        "minimumLevel": 0, 
+                        "maximumLevel": 9
+                    },
+                    {
+                        "name": "中国",
+                        "type": "xyz", 
+                        "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg", 
+                        "minimumTerrainLevel": 10,
+                        "minimumLevel": 10, 
+                        "maximumLevel": 12,
+                        "rectangle": { "xmin": 69.706929, "xmax": 136.560941, "ymin": 15.831038, "ymax": 52.558005 }
+                    },
+                    {
+                        "name": "具体项目(如合肥)",
+                        "type": "xyz", 
+                        "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg", 
+                        "minimumTerrainLevel": 12,
+                        "minimumLevel": 12, 
+                        "maximumLevel": 18,
+                        "rectangle": { "xmin": 116.33236, "xmax": 118.183557, "ymin": 31.143784, "ymax": 32.565035 }
+                    }
+                ]
             },
             {
                 "name": "单张图片  (本地离线)",
@@ -129,7 +150,7 @@
                     { "field": "name", "name": "名称" },
                     { "field": "floor", "name": "楼层" }
                 ],
-                "visible":true
+                "visible":false
             }
         ]
     }

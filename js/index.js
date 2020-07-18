@@ -58,46 +58,40 @@ function initUI() {
 function initWork(viewer) {
     haoutil.oneMsg('如果未出现地球，是因为地形加载失败，请刷新重新加载！', 'terrain_tip');
 
+
+    //针对不同终端的优化配置
+    if (haoutil.system.isPCBroswer()) {
+        // Cesium 1.61以后会默认关闭反走样，对于桌面端而言还是开启得好，
+        viewer.scene.postProcessStages.fxaa.enabled = true;
+
+        //鼠标滚轮放大的步长参数
+        viewer.scene.screenSpaceCameraController._zoomFactor = 2.0;
+
+        //IE浏览器优化
+        if (window.navigator.userAgent.toLowerCase().indexOf("msie") >= 0) {
+            viewer.targetFrameRate = 20;        //限制帧率
+            viewer.requestRenderMode = true;    //取消实时渲染
+        }
+
+    }
+    else {
+        //鼠标滚轮放大的步长参数
+        viewer.scene.screenSpaceCameraController._zoomFactor = 5.0;
+
+        //移动设备上禁掉以下几个选项，可以相对更加流畅 
+        viewer.requestRenderMode = true;    //取消实时渲染
+        viewer.scene.fog.enable = false;
+        viewer.scene.skyAtmosphere.show = false;
+        viewer.scene.globe.showGroundAtmosphere = false;
+    }
+
     // 禁用默认的实体双击动作。
     viewer.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
     viewer.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
-    //鼠标滚轮放大的步长参数
-    viewer.scene.screenSpaceCameraController._zoomFactor = 1.5;
-
-    //webgl渲染失败后，刷新页面
-    //viewer.scene.renderError.addEventListener(function (scene, error) {
-    //    window.location.reload();
-    //});
-
-
-    //移动设备上禁掉以下几个选项，可以相对更加流畅
-    if (!haoutil.system.isPCBroswer()) {
-        viewer.targetFrameRate = 20;        //限制帧率
-        viewer.requestRenderMode = true;    //取消实时渲染
-        viewer.scene.fog.enable = false;
-        viewer.scene.skyAtmosphere.show = false;
-        viewer.scene.fxaa = false;
-    }
-
-    //IE浏览器优化
-    if (window.navigator.userAgent.toLowerCase().indexOf("msie") >= 0) {
-        viewer.targetFrameRate = 20;        //限制帧率
-        viewer.requestRenderMode = true;    //取消实时渲染
-    }
-
-
     //二三维切换不用动画
     if (viewer.sceneModePicker)
         viewer.sceneModePicker.viewModel.duration = 0.0;
-
-    //设置操作习惯,更换中键和右键 
-    //viewer.scene.screenSpaceCameraController.tiltEventTypes = [
-    //    Cesium.CameraEventType.RIGHT_DRAG, Cesium.CameraEventType.PINCH,
-    //    { eventType: Cesium.CameraEventType.LEFT_DRAG, modifier: Cesium.KeyboardEventModifier.CTRL },
-    //    { eventType: Cesium.CameraEventType.RIGHT_DRAG, modifier: Cesium.KeyboardEventModifier.CTRL }
-    //];
-    //viewer.scene.screenSpaceCameraController.zoomEventTypes = [Cesium.CameraEventType.MIDDLE_DRAG, Cesium.CameraEventType.WHEEL, Cesium.CameraEventType.PINCH];
 
 
     $.ajax({
@@ -113,7 +107,6 @@ function initWork(viewer) {
             haoutil.alert(configfile + "文件加载失败！");
         }
     });
-
 
 }
 
