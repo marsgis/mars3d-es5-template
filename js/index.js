@@ -124,9 +124,9 @@ function showPoint(arrdata) {
             position: position,
             point: {
                 //像素点
-                color: new Cesium.Color.fromCssColorString("#3388ff"),
+                color: Cesium.Color.fromCssColorString("#3388ff"),
                 pixelSize: 10,
-                outlineColor: new Cesium.Color.fromCssColorString("#ffffff"),
+                outlineColor: Cesium.Color.fromCssColorString("#ffffff"),
                 outlineWidth: 2,
                 scaleByDistance: new Cesium.NearFarScalar(1000, 1, 1000000, 0.1)
             },
