@@ -118,11 +118,16 @@ li {
 .dark .form-control,
 .dark .input-group-addon,
 .dark .btn-default,
-.dark input,
 .dark .dropdown-menu {
     color: #ffffff;
     background-color: rgba(63, 72, 84, 0.7);
-    border: none;
+    border: none; 
+}
+
+.dark input{
+    color: #ffffff;
+    background-color: rgba(63, 72, 84, 0.7);
+    border-width: 1px;
 }
 
 .dark .btn-info {
