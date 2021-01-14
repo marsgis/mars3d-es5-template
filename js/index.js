@@ -27,7 +27,7 @@ function removeMask() {
 function initMap() {
 
     mars3d.createMap({
-        id: 'cesiumContainer',
+        id: 'mars3dContainer',
         url: "config/config.json",
         //infoBox: false,     //是否显示点击要素之后显示的信息  【也可以在config.json中配置】  
         //sceneMode: Cesium.SceneMode.SCENE2D, 

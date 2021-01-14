@@ -36,15 +36,15 @@
                 "icon": "img/basemaps/google_img.png",
                 "type": "www_google",
                 "crs": "wgs84",
-                "layer": "img_d",
-                "visible": true
+                "layer": "img_d"
             },
             {
                 "name": "ArcGIS卫星",
                 "icon": "img/basemaps/esriWorldImagery.png",
                 "type": "arcgis",
                 "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
-                "enablePickFeatures": false
+                "enablePickFeatures": false,
+                "visible": true
             },
             {
                 "name": "微软卫星",
