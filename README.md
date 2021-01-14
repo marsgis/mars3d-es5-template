@@ -1,7 +1,7 @@
 # Mars3D最简项目模版 - ES5传统版
  传统模式Web前端技术栈下的最简[Mars3D](http://cesium.marsgis.cn)应用的三维地球项目模版。
   
- 其他技术栈，请参考 [Mars3D开源导航](https://github.com/marsgis/MarsGIS-for-Cesium)
+ 其他技术栈，请参考 [Mars3D开源导航](https://github.com/marsgis/mars3d)
  
  
 
