@@ -129,7 +129,7 @@ function addGraphic_e03(graphicLayer) {
     name: '贴地图标',
     position: [116.3, 31.0, 1000],
     style: {
-      image: 'http://mars3d.cn/example/img/marker/mark2.png',
+      image: 'https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/img/marker/mark2.png',
       scale: 1,
       horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
@@ -146,7 +146,7 @@ function addGraphic_e04(graphicLayer) {
       plane: new Cesium.Plane(Cesium.Cartesian3.UNIT_Z, 0.0),
       dimensions: new Cesium.Cartesian2(4000.0, 4000.0),
       material: mars3d.MaterialUtil.createMaterialProperty(mars3d.MaterialType.Image, {
-        image: 'http://mars3d.cn/example/img/textures/movingRiver.png',
+        image: 'https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/gh/marsgis/mars3d-es5-example/example/img/textures/movingRiver.png',
         transparent: true,
       }),
     },
@@ -291,7 +291,7 @@ function addGraphic_e13(graphicLayer) {
       diffHeight: 500,
       //动画线材质
       material: mars3d.MaterialUtil.createMaterialProperty(mars3d.MaterialType.LineFlow, {
-        image: 'http://mars3d.cn/example/img/textures/fence.png',
+        image: 'https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/gh/marsgis/mars3d-es5-example/example/img/textures/fence.png',
         color: '#00ff00',
         speed: 10,
         axisY: true,
@@ -329,7 +329,7 @@ function addGraphic_e15(graphicLayer) {
     ],
     style: {
       material: mars3d.MaterialUtil.createMaterialProperty(mars3d.MaterialType.Water, {
-        normalMap: 'http://mars3d.cn/example/img/textures/waterNormals.jpg', // 水正常扰动的法线图
+        normalMap: 'https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/gh/marsgis/mars3d-es5-example/example/img/textures/waterNormals.jpg', // 水正常扰动的法线图
         frequency: 8000.0, // 控制波数的数字。
         animationSpeed: 0.02, // 控制水的动画速度的数字。
         amplitude: 5.0, // 控制水波振幅的数字。
