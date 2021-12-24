@@ -29,9 +29,8 @@
  Run and browse index.html directly under any development editor (such as vscode) or HTTP server (such as node, nginx, Tomcat, IIS, etc.)
 
 ### Operation effect 
- [online Demo](http://mars3d.cn/project/es5-template/)  
-
- ![image](http://mars3d.cn/project/es5-template/screenshot.jpg)
+ [online Demo](http://marsgis.gitee.io/mars3d-es5-template/)  
+ 
  
 
 
