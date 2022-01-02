@@ -2,7 +2,7 @@
 <img src="https://muyao1987.gitee.io/cdn/mars3d.cn/logo.png" width="300px" />
 </p>
 
-<p align="center">基于传统JS技术栈的 Mars3D🌎最简项目模板</p>
+<p align="center">基于 传统JS技术栈 的 Mars3D🌎最简项目模板</p>
 
 <p align="center">
 <a target="_black" href="https://github.com/marsgis/mars3d">
