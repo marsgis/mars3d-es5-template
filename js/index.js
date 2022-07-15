@@ -7,7 +7,7 @@ if (!mars3d.Util.webglreport()) {
 
 //读取 config.json 配置文件
 let configUrl = "config/config.json";
-mars3d.Resource.fetchJson({ url: configUrl }) 
+mars3d.Util.fetchJson({ url: configUrl }) 
   .then((data) => {
     initMap(data.map3d); //构建地图
   })
@@ -63,29 +63,29 @@ function initMap(mapOptions) {
     },
   ]);
 
-  //加一些演示数据
-  addGraphic_e01(graphicLayer);
-  addGraphic_e02(graphicLayer);
-  addGraphic_e03(graphicLayer);
-  addGraphic_e04(graphicLayer);
-  addGraphic_e05(graphicLayer);
-  addGraphic_e06(graphicLayer);
-  addGraphic_e07(graphicLayer);
-  addGraphic_e08(graphicLayer);
-  addGraphic_e09(graphicLayer);
-  addGraphic_e10(graphicLayer);
-  addGraphic_e11(graphicLayer);
-  addGraphic_e12(graphicLayer);
-  addGraphic_e13(graphicLayer);
-  addGraphic_e14(graphicLayer);
-  addGraphic_e15(graphicLayer);
+  // 加一些演示数据，来源 http://mars3d.cn/editor-vue.html?id=layer-graphic/basis/entity
+  addDemoGraphic1(graphicLayer)
+  addDemoGraphic2(graphicLayer)
+  addDemoGraphic3(graphicLayer)
+  addDemoGraphic4(graphicLayer)
+  addDemoGraphic5(graphicLayer)
+  addDemoGraphic6(graphicLayer)
+  addDemoGraphic7(graphicLayer)
+  addDemoGraphic8(graphicLayer)
+  addDemoGraphic9(graphicLayer)
+  addDemoGraphic10(graphicLayer)
+  addDemoGraphic11(graphicLayer)
+  addDemoGraphic12(graphicLayer)
+  addDemoGraphic13(graphicLayer)
+  addDemoGraphic14(graphicLayer)
+  addDemoGraphic15(graphicLayer)
 }
-
-function addGraphic_e01(graphicLayer) {
-  let graphic = new mars3d.graphic.LabelEntity({
+ 
+function addDemoGraphic1(graphicLayer) {
+  const graphic = new mars3d.graphic.LabelEntity({
     position: new mars3d.LngLatPoint(116.1, 31.0, 1000),
     style: {
-      text: "Mars3D平台",
+      text: "火星科技Mars3D平台",
       font_size: 25,
       font_family: "楷体",
       color: "#003da6",
@@ -94,64 +94,63 @@ function addGraphic_e01(graphicLayer) {
       outlineWidth: 2,
       horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-      visibleDepth: false,
+      visibleDepth: false
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例1" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e02(graphicLayer) {
-  let graphic = new mars3d.graphic.PointEntity({
+function addDemoGraphic2(graphicLayer) {
+  const graphic = new mars3d.graphic.PointEntity({
     position: [116.2, 31.0, 1000],
     style: {
       color: "#ff0000",
       pixelSize: 10,
       outline: true,
       outlineColor: "#ffffff",
-      outlineWidth: 2,
+      outlineWidth: 2
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例2" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e03(graphicLayer) {
-  let graphic = new mars3d.graphic.BillboardEntity({
+function addDemoGraphic3(graphicLayer) {
+  const graphic = new mars3d.graphic.BillboardEntity({
     name: "贴地图标",
     position: [116.3, 31.0, 1000],
     style: {
-      image:
-        "https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/img/marker/mark2.png",
+      image: "img/marker/mark-blue.png",
       scale: 1,
       horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-      clampToGround: true,
+      clampToGround: true
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例3" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e04(graphicLayer) {
-  let graphic = new mars3d.graphic.PlaneEntity({
+function addDemoGraphic4(graphicLayer) {
+  const graphic = new mars3d.graphic.PlaneEntity({
     position: new mars3d.LngLatPoint(116.4, 31.0, 1000),
     style: {
       plane: new Cesium.Plane(Cesium.Cartesian3.UNIT_Z, 0.0),
       dimensions: new Cesium.Cartesian2(4000.0, 4000.0),
-      material: mars3d.MaterialUtil.createMaterialProperty(
-        mars3d.MaterialType.Image,
-        {
-          image:
-            "https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/img/textures/movingRiver.png",
-          transparent: true,
-        }
-      ),
+      materialType: mars3d.MaterialType.Image2,
+      materialOptions: {
+        image: "img/textures/poly-rivers.png",
+        transparent: true
+      }
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例4" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-//
-function addGraphic_e05(graphicLayer) {
-  let graphic = new mars3d.graphic.BoxEntity({
+function addDemoGraphic5(graphicLayer) {
+  const graphic = new mars3d.graphic.BoxEntity({
     position: new mars3d.LngLatPoint(116.5, 31.0, 1000),
     style: {
       dimensions: new Cesium.Cartesian3(2000.0, 2000.0, 2000.0),
@@ -160,14 +159,15 @@ function addGraphic_e05(graphicLayer) {
       opacity: 0.9,
       heading: 45,
       roll: 45,
-      pitch: 0,
+      pitch: 0
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例5" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e06(graphicLayer) {
-  let graphic = new mars3d.graphic.CircleEntity({
+function addDemoGraphic6(graphicLayer) {
+  const graphic = new mars3d.graphic.CircleEntity({
     position: [116.1, 30.9, 1000],
     style: {
       radius: 1800.0,
@@ -176,171 +176,175 @@ function addGraphic_e06(graphicLayer) {
       outline: true,
       outlineWidth: 3,
       outlineColor: "#ffffff",
-      clampToGround: true,
+      clampToGround: true
     },
     popup: "直接传参的popup",
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例6" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e07(graphicLayer) {
-  let graphic = new mars3d.graphic.CylinderEntity({
+function addDemoGraphic7(graphicLayer) {
+  const graphic = new mars3d.graphic.CylinderEntity({
     position: [116.2, 30.9, 1000],
     style: {
       length: 3000.0,
       topRadius: 0.0,
       bottomRadius: 1300.0,
       color: "#00FFFF",
-      opacity: 0.7,
+      opacity: 0.7
     },
     popup: "直接传参的popup",
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例7" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
 //
-function addGraphic_e08(graphicLayer) {
-  let graphic = new mars3d.graphic.EllipsoidEntity({
+function addDemoGraphic8(graphicLayer) {
+  const graphic = new mars3d.graphic.EllipsoidEntity({
     position: new mars3d.LngLatPoint(116.3, 30.9, 1000),
     style: {
       radii: new Cesium.Cartesian3(1500.0, 1500.0, 1500.0),
-      material: Cesium.Color.RED.withAlpha(0.5),
+      color: "rgba(255,0,0,0.5)",
       outline: true,
-      outlineColor: Cesium.Color.WHITE.withAlpha(0.3),
+      outlineColor: "rgba(255,255,255,0.3)"
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例8" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e09(graphicLayer) {
-  let graphic = new mars3d.graphic.ModelEntity({
+function addDemoGraphic9(graphicLayer) {
+  const graphic = new mars3d.graphic.ModelEntity({
     name: "消防员",
     position: [116.4, 30.9, 1000],
     style: {
-      url: "http://data.mars3d.cn/gltf/mars/firedrill/xiaofangyuan-run.gltf",
+      url: "//data.mars3d.cn/gltf/mars/firedrill/xiaofangyuan-run.gltf",
       scale: 16,
-      minimumPixelSize: 100,
+      minimumPixelSize: 100
     },
-  });
-  graphicLayer.addGraphic(graphic);
+    attr: { remark: "示例9" }
+  })
+  graphicLayer.addGraphic(graphic)
 }
 
-function addGraphic_e10(graphicLayer) {
-  let graphic = new mars3d.graphic.PolylineEntity({
+function addDemoGraphic10(graphicLayer) {
+  const graphic = new mars3d.graphic.PolylineEntity({
     positions: [
       [116.5, 30.9, 1000],
       [116.52, 30.91, 1000],
-      [116.53, 30.89, 1000],
+      [116.53, 30.89, 1000]
     ],
     style: {
       width: 5,
-      color: "#3388ff",
+      color: "#3388ff"
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例10" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
 
-function addGraphic_e11(graphicLayer) {
-  let graphic = new mars3d.graphic.PolylineVolumeEntity({
+function addDemoGraphic11(graphicLayer) {
+  const graphic = new mars3d.graphic.PolylineVolumeEntity({
     positions: [
       [116.1, 30.8, 1000],
       [116.12, 30.81, 1000],
-      [116.13, 30.79, 1000],
+      [116.13, 30.79, 1000]
     ],
     style: {
       shape: "pipeline",
       radius: 80,
       color: "#3388ff",
-      opacity: 0.9,
+      opacity: 0.9
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例11" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
 
-function addGraphic_e12(graphicLayer) {
-  let graphic = new mars3d.graphic.CorridorEntity({
+function addDemoGraphic12(graphicLayer) {
+  const graphic = new mars3d.graphic.CorridorEntity({
     positions: [
       [116.2, 30.8, 1000],
       [116.22, 30.81, 1000],
       [116.23, 30.79, 1000],
-      [116.247328, 30.806077, 610.41],
+      [116.247328, 30.806077, 610.41]
     ],
     style: {
       width: 500,
-      color: "#3388ff",
+      color: "#3388ff"
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例12" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
 
-function addGraphic_e13(graphicLayer) {
-  let graphic = new mars3d.graphic.WallEntity({
+function addDemoGraphic13(graphicLayer) {
+  const graphic = new mars3d.graphic.WallEntity({
     positions: [
       [116.3, 30.8, 1000],
       [116.31, 30.81, 1000],
       [116.334639, 30.800735, 721.39],
-      [116.32, 30.79, 1000],
+      [116.32, 30.79, 1000]
     ],
     style: {
       closure: true,
       diffHeight: 500,
-      //动画线材质
-      material: mars3d.MaterialUtil.createMaterialProperty(
-        mars3d.MaterialType.LineFlow,
-        {
-          image:
-            "https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/img/textures/fence.png",
-          color: "#00ff00",
-          speed: 10,
-          axisY: true,
-        }
-      ),
+      // 动画线材质
+      materialType: mars3d.MaterialType.LineFlow,
+      materialOptions: {
+        image: "img/textures/fence.png",
+        color: "#00ff00",
+        speed: 10,
+        axisY: true
+      }
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例13" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
 
-function addGraphic_e14(graphicLayer) {
-  let graphic = new mars3d.graphic.RectangleEntity({
+function addDemoGraphic14(graphicLayer) {
+  const graphic = new mars3d.graphic.RectangleEntity({
     positions: [
       [116.383144, 30.819978, 444.42],
 
-      [116.42216, 30.793431, 1048.07],
+      [116.42216, 30.793431, 1048.07]
     ],
     style: {
       color: "#3388ff",
       opacity: 0.5,
       outline: true,
       outlineWidth: 3,
-      outlineColor: "#ffffff",
+      outlineColor: "#ffffff"
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例14" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
 
-function addGraphic_e15(graphicLayer) {
-  let graphic = new mars3d.graphic.PolygonEntity({
+function addDemoGraphic15(graphicLayer) {
+  const graphic = new mars3d.graphic.PolygonEntity({
     positions: [
       [116.510278, 30.834372, 567.29],
       [116.530085, 30.809331, 448.31],
       [116.507367, 30.788551, 98.21],
-      [116.472468, 30.823091, 677.39],
+      [116.472468, 30.823091, 677.39]
     ],
     style: {
-      material: mars3d.MaterialUtil.createMaterialProperty(
-        mars3d.MaterialType.Water,
-        {
-          normalMap:
-            "https://cdn.jsdelivr.net/gh/marsgis/mars3d-es5-example/example/img/textures/waterNormals.jpg", // 水正常扰动的法线图
-          frequency: 8000.0, // 控制波数的数字。
-          animationSpeed: 0.02, // 控制水的动画速度的数字。
-          amplitude: 5.0, // 控制水波振幅的数字。
-          specularIntensity: 0.8, // 控制镜面反射强度的数字。
-          baseWaterColor: "#006ab4", // rgba颜色对象基础颜色的水。#00ffff,#00baff,#006ab4
-          blendColor: "#006ab4", // 从水中混合到非水域时使用的rgba颜色对象。
-        }
-      ),
+      materialType: mars3d.MaterialType.Water,
+      materialOptions: {
+        normalMap: "img/textures/waterNormals.jpg", // 水正常扰动的法线图
+        frequency: 8000.0, // 控制波数的数字。
+        animationSpeed: 0.02, // 控制水的动画速度的数字。
+        amplitude: 5.0, // 控制水波振幅的数字。
+        specularIntensity: 0.8, // 控制镜面反射强度的数字。
+        baseWaterColor: "#006ab4", // rgba颜色对象基础颜色的水。#00ffff,#00baff,#006ab4
+        blendColor: "#006ab4" // 从水中混合到非水域时使用的rgba颜色对象。
+      }
     },
-  });
-  graphicLayer.addGraphic(graphic); //还可以另外一种写法: graphic.addTo(graphicLayer)
+    attr: { remark: "示例15" }
+  })
+  graphicLayer.addGraphic(graphic) // 还可以另外一种写法: graphic.addTo(graphicLayer)
 }
