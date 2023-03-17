@@ -1,7 +1,7 @@
 ﻿{
   "map3d": {
     "scene": {
-      "center": {"lat":30.470384,"lng":116.320892,"alt":44893,"heading":359,"pitch":-44},
+      "center": { "lat": 31.686288, "lng": 117.229619, "alt": 11333.9, "heading": 359.2, "pitch": -39.5 },
       "scene3DOnly": false,
       "shadows": false,
       "removeDblClick": true,
@@ -50,7 +50,7 @@
       "compass": { "bottom": "toolbar", "left": "5px" },
       "distanceLegend": { "left": "100px", "bottom": "2px" },
       "locationBar": {
-        "fps": false,
+        "fps": true,
         "crs": "CGCS2000_GK_Zone_3",
         "crsDecimal": 0,
         "template": "<div>经度:{lng}</div> <div>纬度:{lat}</div> <div class='hide1000'>横{crsx}  纵{crsy}</div> <div>海拔：{alt}米</div> <div class='hide700'>层级：{level}</div><div>方向：{heading}°</div> <div>俯仰角：{pitch}°</div><div class='hide700'>视高：{cameraHeight}米</div>"
@@ -156,7 +156,7 @@
       },
       {
         "pid": 10,
-        "name": "OSM地图",
+        "name": "OSM地图(暂不可用)",
         "type": "xyz",
         "icon": "img/basemaps/osm.png",
         "url": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -365,7 +365,7 @@
         "highlight": { "type": "polyline", "color": "#2deaf7", "width": 4, "clampToGround": true },
         "center": { "lat": 31.814176, "lng": 117.225362, "alt": 5105.3, "heading": 359.2, "pitch": -83.1 },
         "popup": "all",
-        "onWidget": "widgets/manageLayers-tuli/heatmap.js",
+        "onWidget": "layer-picture-heatmap",
         "mapSplit": false
       },
       {
@@ -387,7 +387,7 @@
         },
         "center": { "lat": 31.816951, "lng": 117.22898, "alt": 2916.7, "heading": 0.3, "pitch": -78.8 },
         "popup": "名称：{NAME}<br />层数：{floor}",
-        "onWidget": "widgets/manageLayers-tuli/heatmap.js"
+        "onWidget": "layer-picture-heatmap"
       },
       {
         "id": 401087,
@@ -414,7 +414,7 @@
           { "type": "html", "html": "<div style='text-align: right;color: #ff0000;padding-right: 10px;'>数据仅供参考</div>" }
         ],
         "popupNoTitle": true,
-        "onWidget": "widgets/manageLayers-tuli/guihua.js"
+        "onWidget": "layer-picture-guihua"
       },
       { "id": 30, "name": "矢量数据", "type": "group" },
       { "id": 3030, "pid": 30, "name": "GeoJSON数据", "type": "group" },
@@ -475,7 +475,8 @@
         "symbol": { "styleOptions": { "color": "#0d3685", "outlineColor": "#0d3685", "opacity": 0.8 } },
         "buildings": { "cloumn": "floors", "height": "flo_height" },
         "popup": "all",
-        "flyTo": true
+        "flyTo": true,
+        "flyToOptions": { "minHeight": 2000 }
       },
       {
         "pid": 3030,
@@ -785,6 +786,7 @@
         "name": "汽车",
         "url": "{dataServer}/file/czml/car.czml",
         "center": { "lat": 40.894745, "lng": 121.920252, "alt": 904, "heading": 64, "pitch": -67 },
+        "onWidget": "control-clock",
         "radio": true,
         "flyTo": true
       },
@@ -792,19 +794,10 @@
         "id": 306011,
         "pid": 3060,
         "type": "czml",
-        "name": "飞行编队",
-        "url": "{dataServer}/file/czml/flight.czml",
+        "name": "卫星轨道",
+        "url": "{dataServer}/file/czml/satellite-simple.czml",
         "popup": "all",
-        "radio": true,
-        "flyTo": true
-      },
-      {
-        "id": 306012,
-        "pid": 3060,
-        "type": "czml",
-        "name": "船舶编队",
-        "url": "{dataServer}/file/czml/ship.czml",
-        "popup": "all",
+        "onWidget": "control-clock",
         "radio": true,
         "flyTo": true
       },
@@ -847,13 +840,13 @@
       {
         "pid": 2010,
         "type": "graphic",
-        "name": "起重车",
+        "name": "警车",
         "data": [
           {
             "type": "modelP",
             "position": [117.217458, 31.815349, 35.03],
             "style": {
-              "url": "//data.mars3d.cn/gltf/mars/qzcar/GKZY_anim.gltf",
+              "url": "//data.mars3d.cn/gltf/mars/jingche/jingche.gltf",
               "scale": 2,
               "heading": -95,
               "clampToGround": true
@@ -1086,7 +1079,10 @@
         "maximumScreenSpaceError": 1,
         "maximumMemoryUsage": 1024,
         "center": { "lat": 34.215516, "lng": 108.960251, "alt": 834, "heading": 4, "pitch": -48 },
-        "flat":{},
+        "flat": {
+          "enabled":true,
+          "flatHeight": 420
+        },
         "flyTo": false,
         "show": false
       },
