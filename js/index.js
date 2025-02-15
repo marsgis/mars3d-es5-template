@@ -9,7 +9,7 @@ if (!mars3d.Util.webglreport()) {
 let configUrl = "config/config.json";
 mars3d.Util.fetchJson({ url: configUrl }) 
   .then((data) => {
-    initMap(data.map3d); //构建地图
+    initMap(data); //构建地图
   })
   .catch(function (error) {
     console.log("加载JSON出错", error);
